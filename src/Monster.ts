@@ -1,13 +1,10 @@
 import { SimpleFighter } from './Fighter';
 
 export default class Monster implements SimpleFighter {
-  protected _lifePoints: number;
-  private _strength: number;
-
-  constructor(lifePoints = 85, strength = 63) {
-    this._lifePoints = lifePoints;
-    this._strength = strength;
-  }
+  constructor(
+    protected _lifePoints: number = 85,
+    private _strength: number = 63,
+  ) { }
 
   attack(enemy: SimpleFighter): void {
     enemy.receiveDamage(this._strength);
