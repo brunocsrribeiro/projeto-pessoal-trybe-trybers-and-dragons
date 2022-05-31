@@ -46,7 +46,7 @@ export default class Character implements Fighter {
     return this._lifePoints;
   }
 
-  attack(enemy: Fighter | SimpleFighter): void {
+  attack(enemy: SimpleFighter): void {
     enemy.receiveDamage(this._strength);
   }
 
@@ -64,11 +64,7 @@ export default class Character implements Fighter {
     this._lifePoints = this._maxLifePoints;
   }
 
-  special(enemy: Fighter): void {
-    enemy.receiveDamage(
-      this._strength * (
-        getRandomInt(1, 10) * this._dexterity
-      ),
-    );
+  special(enemy: SimpleFighter): void {
+    enemy.receiveDamage(this._strength ** 2 * this._dexterity);
   }
 }
